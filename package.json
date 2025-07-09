@@ -1,0 +1,27 @@
+{
+  "name": "quiz_app_backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jayaporalla/Quiz_App_Backend.git"
+  },
+  "keywords": [],
+  "author": "Jayasri P",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jayaporalla/Quiz_App_Backend/issues"
+  },
+  "homepage": "https://github.com/jayaporalla/Quiz_App_Backend#readme",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "uuid": "^11.1.0"
+  }
+}
