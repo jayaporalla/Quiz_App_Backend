@@ -13,7 +13,7 @@ const app = express(); //Creating a server
 app.use(cors());
 app.use(express.json());
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
     res.send("hello geeks");
@@ -24,6 +24,6 @@ app.use("/quiz", quizRouter);
 app.use("/auth", authRouter);
 app.use(routeNotFound);
 
-app.listen(process.env.PORT || PORT, () => {
+app.listen(PORT, () => {
     console.log("server started....");
 })
