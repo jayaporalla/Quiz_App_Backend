@@ -1,9 +1,11 @@
+require("dotenv").config();
+
 const express = require('express');
 const cors = require('cors');
 
 const quizRouter = require("./router/quiz.router");
 const categoriesRouter = require("./router/categories.router");
-const { loginRouter, signupRouter } = require("./router/auth.router");
+const authRouter = require("./router/auth.router");
 const routeNotFound = require("./middleware/routeNotFound");
 const quizzes = require("./db/quizzes");
 
@@ -19,8 +21,7 @@ app.get("/", (req, res) => {
 
 app.use("/categories", categoriesRouter)
 app.use("/quiz", quizRouter);
-app.use("/auth/login", loginRouter);
-app.use("/auth/signup", signupRouter);
+app.use("/auth", authRouter);
 app.use(routeNotFound);
 
 app.listen(process.env.PORT || PORT, () => {
