@@ -7,6 +7,7 @@ const userdata = require("../db/users");
 
 
 const signupHandler = (req, res) => {
+    console.log("SECRET_TOKEN (signup):", process.env.SECRET_TOKEN);
     const { username, password } = req.body;
     //Duplicate user
     const isUserPresent = userdata.users.some(user => user.username === username);
@@ -22,6 +23,7 @@ const signupHandler = (req, res) => {
 }
 
 const loginHandler = (req, res) => {
+    console.log("SECRET_TOKEN (signup):", process.env.SECRET_TOKEN);
     const { username, password } = req.body;
         const isUserVerified = userdata.users.some(user => user.username === username && user.password === password);
         if(isUserVerified){
