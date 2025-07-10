@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const quizRouter = require("./router/quiz.router");
 const categoriesRouter = require("./router/categories.router");
-const authRouter = require("./router/auth.router");
+const { loginRouter, signupRouter } = require("./router/auth.router");
 const routeNotFound = require("./middleware/routeNotFound");
 const quizzes = require("./db/quizzes");
 
@@ -13,17 +13,18 @@ const app = express(); //Creating a server
 app.use(cors());
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 app.get("/", (req, res) => {
-    res.status(200).send("hello geeks");
+    res.send("hello geeks");
 })
 
 app.use("/categories", categoriesRouter)
 app.use("/quiz", quizRouter);
-app.use("/auth", authRouter);
+app.use("/auth/login", loginRouter);
+app.use("/auth/signup", signupRouter);
 app.use(routeNotFound);
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log("server started....");
 })
